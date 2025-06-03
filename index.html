@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>¡Nos Vamos de Preboda!</title>
-  <link href="https://fonts.googleapis.com/css2?family=Simonetta&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Simonetta&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -17,26 +17,37 @@
       color: #3c2f2f;
       text-align: center;
     }
+
     .container {
       padding: 60px 20px;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.85);
       max-width: 800px;
       margin: auto;
       border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     }
+
+    img {
+      max-width: 100%;
+      border-radius: 20px;
+      margin-bottom: 30px;
+    }
+
     h1 {
       font-size: 3em;
       margin-bottom: 0.2em;
     }
+
     h2 {
       font-size: 1.8em;
       margin-bottom: 1em;
     }
+
     p {
       font-size: 1.2em;
       margin: 20px 0;
     }
+
     .btn {
       display: inline-block;
       margin-top: 30px;
@@ -49,20 +60,43 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
+
     .btn:hover {
       background-color: #5a4747;
+    }
+
+    #countdown {
+      font-size: 1.5em;
+      margin-top: 20px;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <img src="https://raw.githubusercontent.com/JoseAntonioyCarolina/preboda/main/IMG_6202.jpg" alt="Nuestra foto">
+    <img src="https://raw.githubusercontent.com/JoseAntonioyCarolina/preboda/main/IMG_6202.jpg" alt="José Antonio y Carolina" />
     <h1>¡Nos Vamos de Preboda!</h1>
     <h2>José Antonio & Carolina</h2>
-    <p>Queremos celebrar con vosotros la preboda antes del gran día.</p>
-    <p>📍 La cita será en <strong>La Carolina</strong>, rodeados de buena compañía, risas y mucha ilusión.</p>
-    <p>✨ ¡Os esperamos para brindar juntos!</p>
+    <p>Queremos celebrar con vosotros nuestra preboda antes del gran día.</p>
+    <p>📍 La cita será en <strong>La Carolina</strong>, rodeados de buena compañía, música, alegría y muchos brindis.</p>
+    <p>📅 <strong>26 de septiembre de 2025</strong> a las <strong>09:00 h</strong></p>
+
+    <div id="countdown">Cargando cuenta atrás...</div>
+
     <a class="btn" href="https://maps.app.goo.gl/cbw4kNpLG9aS175W6" target="_blank">Ver ubicación en Google Maps</a>
   </div>
-</body>
-</html>
+
+  <script>
+    // Fecha objetivo: 26 de septiembre de 2025 a las 09:00 hora local
+    const targetDate = new Date("2025-09-26T09:00:00+02:00").getTime();
+
+    const countdown = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        countdown.innerHTML = "🎉 ¡Ya ha comenzado la preboda! 🎉";
+        return;
+      }
